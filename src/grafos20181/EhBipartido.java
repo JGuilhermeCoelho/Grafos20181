@@ -6,8 +6,18 @@ import org.jgrapht.alg.cycle.PatonCycleBase;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleGraph;
 
+/**
+ * Determinará com base nos grafos de teste se estes são bipartidos ou não.
+ * 
+ * @author Abel, José Guilherme, Mariana, Siuanny
+ */
 public class EhBipartido {
 	
+	/**
+	 * O método define Vértices e Arestas do primeiro grafo dado para teste.
+	 * 
+	 * @return um grafo
+	 */
 	private static Graph<String, DefaultEdge> teste1() {
 		Graph<String, DefaultEdge> graph = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
 
@@ -31,6 +41,11 @@ public class EhBipartido {
 		return graph;
 	}	
 	
+	/**
+	 * O método define Vértices e Arestas do segundo grafo dado para teste.
+	 * 
+	 * @return um grafo
+	 */
 	private static Graph<String, DefaultEdge> teste2() {
 		Graph<String, DefaultEdge> graph = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
 
@@ -55,6 +70,12 @@ public class EhBipartido {
 		return graph;
 	}
 	
+	/**
+	 * Verifica se há ciclos impares no grafo, para determinar se o grafo é ou não bipartido.
+	 * 
+	 * @param grafo
+	 * @return uma string
+	 */
 	private static String analisaSeEhBipartido(Graph<String, DefaultEdge> grafo) {
 		PatonCycleBase<String, DefaultEdge> base = new PatonCycleBase<String, DefaultEdge>(grafo);
 		List<List<String>> circulos = base.findCycleBase();
@@ -67,12 +88,23 @@ public class EhBipartido {
 		
 	}
 
+	/**
+	 * Representação determinando cada grafo como sendo bipartido ou não. 
+	 * 
+	 * @param grafo1
+	 * @param grafo2
+	 */
 	private static void Respostas(Graph<String, DefaultEdge> grafo1, Graph<String, DefaultEdge> grafo2) {
 		System.out.println("Questão 3. Analisa se é bipartido:" + System.lineSeparator());
 		System.out.println("Grafo 1 - " + analisaSeEhBipartido(grafo1));
 		System.out.println("Grafo 2 - " + analisaSeEhBipartido(grafo2));
 	}
 	
+	/**
+	 * São invocados métodos para criação dos grafos que serão testados.
+	 * Também é dada a resposta quanto a classificação dos grafos, podendo 
+	 * ser bipartido ou não.
+	 */
 	public static void main(String[] args)  {
 		Graph<String, DefaultEdge> grafo1 = teste1();
 		Graph<String, DefaultEdge> grafo2 = teste2();

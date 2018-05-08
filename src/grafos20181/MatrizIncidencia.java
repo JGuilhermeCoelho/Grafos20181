@@ -7,7 +7,7 @@ import org.jgrapht.graph.SimpleGraph;
 /**
  * Representação de uma matriz de incidência.
  *
- * @author Abel, Mariana, José Guilherme, Siuanny
+ * @author Abel, José Guilherme, Mariana, Siuanny
  */
 public class MatrizIncidencia {
 
@@ -40,6 +40,12 @@ public class MatrizIncidencia {
 		return grafoSimples;
 	}
 	
+	/**
+	 * Insere na matriz de incidência os vétices correspondentes ao grafo teste.
+	 * 
+	 * @param grafo
+	 * @param matriz
+	 */
 	private static void insereVertices(Graph<String, DefaultEdge> grafo, String[][] matriz) {
 		int i = 1;
 		for (String vertice : grafo.vertexSet()) {
@@ -47,6 +53,12 @@ public class MatrizIncidencia {
 		}
 	}
 
+	/**
+	 * Insere na matriz de incidência as arestas correspondentes ao grafo teste.
+	 * 
+	 * @param grafo
+	 * @param matriz
+	 */
 	private static void insereArestas(Graph<String, DefaultEdge> grafo, String[][] matriz) {
 		int j = 1;
 		for (DefaultEdge aresta : grafo.edgeSet()) {
@@ -89,7 +101,9 @@ public class MatrizIncidencia {
 		}
 		return matriz;
 	}
-	
+	/**
+	 * Imprime a matriz resultante.
+	 */
 	private static void Resposta(String[][] matriz) {
 		System.out.println("Questão 1. Matriz de Incidência:" + System.lineSeparator());
 		for (int i = 0; i < matriz.length; i++) {
@@ -99,7 +113,10 @@ public class MatrizIncidencia {
 			System.out.println();
 		}
 	}
-
+	
+	/**
+	 * Chama os métodos de construção e exibição da matriz resutante.
+	 */
 	public static void main(String[] args) {
 		Graph<String, DefaultEdge> grafo = criaGrafoSimples();
 		String[][] matriz = criaMatriz(grafo);
